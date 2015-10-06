@@ -4,17 +4,6 @@ class ExercisesController < ApplicationController
   # GET /exercises
   # GET /exercises.json
   def index
-    # @exercises = []
-    # File.open("app/assets/data/careItems.json", "r") do |f|
-    #   items = JSON.parse(f.read)
-    #   @exercises = items.map { |exercise|
-    #     {
-    #       name: exercise["name"],
-    #       set: exercise["set"],
-    #       code: exercise["code"],
-    #     }
-    #   }
-    # end
     @exercises = Exercise.all
   end
 
@@ -81,6 +70,6 @@ class ExercisesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exercise_params
-      params.require(:exercise).permit(:name, :set, :code)
+      params.require(:exercise).permit(:name, :set, :code, :description, :exceptions, :tips, :dependent, :substantial, :partial, :supervision, :setup, :independent)
     end
 end
