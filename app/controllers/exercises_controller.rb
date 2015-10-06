@@ -4,24 +4,24 @@ class ExercisesController < ApplicationController
   # GET /exercises
   # GET /exercises.json
   def index
-    @exercises = []
-    File.open("app/assets/data/careItems.json", "r") do |f|
-      items = JSON.parse(f.read)
-      @exercises = items.map { |exercise|
-        {
-          name: exercise["name"],
-          set: exercise["set"],
-          code: exercise["code"],
-        }
-      }
-    end
-    # @exercises = Exercise.all
+    # @exercises = []
+    # File.open("app/assets/data/careItems.json", "r") do |f|
+    #   items = JSON.parse(f.read)
+    #   @exercises = items.map { |exercise|
+    #     {
+    #       name: exercise["name"],
+    #       set: exercise["set"],
+    #       code: exercise["code"],
+    #     }
+    #   }
+    # end
+    @exercises = Exercise.all
   end
 
   # GET /exercises/1
   # GET /exercises/1.json
   def show
-    @exercise = Exercise.find(params[:code])
+    @exercise = Exercise.find(params[:id])
   end
 
   # GET /exercises/new
