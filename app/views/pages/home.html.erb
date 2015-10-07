@@ -1,17 +1,20 @@
-<div class="text-center">
-  <h1>CARE Tool</h1>
-  <div class="jumbotron">
-    <h3>This is a Ruby on Rails version of the physical therapy app I am developing</h3>
-    <p>
-      <em>It is not meant for public use</em>
-      <br>
-      Instead, I am treating it as a demonstration of my Ruby on Rails skills.
-    </p>
+<!--Set Title in Navbar-->
+<script>
+  document.getElementById('pageTitle').innerHTML = "CARE Tool"; 
+</script>
 
-    <ul class="nav nav-pills nav-justified">
-      <li role="presentation"><%= link_to "Exercises", exercises_path, class: 'btn btn-success btn-lg' %></li>
-      <li role="presentation"></li>
-      <li role="presentation"><%= link_to "Patients", "#", class: 'btn btn-primary btn-lg' %></li>
-    </ul>
-  </div>
+<!--Main body-->
+<div class="jumbotron text-center">
+  <h3>This is a Ruby on Rails version of my physical therapy app</h3>
+  
+  <h4><em>It is not meant for professional use</em></h4>
+  
+  <h6>This demonstrates some web development skills</h6>
+
+  <ul class="nav nav-pills nav-justified">
+    <li role="presentation"><%= link_to "Exercises", exercises_path, class: 'btn btn-warning' %></li>
+    <li role="presentation"></li>
+    <li role="presentation"></li>
+    <li role="presentation"><%= link_to "Patients", "#", class: 'btn btn-danger' %></li>
+  </ul>
 </div>

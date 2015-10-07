@@ -1,130 +1,101 @@
-<div>
-  <h1><%= @exercise.name %></h1>
-  <p>
-    <em><%= @exercise.set %></em>
-  </p>
-</div>
+<!--Set Title in Navbar-->
+<script>
+  document.getElementById('pageTitle').innerHTML = "<%= @exercise.name %>"; 
+</script>
+
+<!--Header-->
+<p class="text-right">
+  <em><%= @exercise.set %></em>
+</p>
+
+<!--Description, Exceptions, Tips-->
 <div>
   <h4>Description</h4>
-    <%= @exercise.description %>
+  <%= @exercise.description %>
 </div>
-<div>
-  <h4>Exceptions</h4> 
-  <ul>
-    <% @exercise.exceptions.each do |exc| %>
-      <li><%= exc %></li>
-    <% end %>
-  </ul>
-</div>
-<div>
-  <h4>Tips</h4> 
-  <ul>
-    <% @exercise.tips.each do |tip| %>
-      <li><%= tip %></li>
-    <% end %>
-  </ul>
-</div>
-
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title text-center">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          1. Dependent
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-      <div class="panel-body">
-        <% @exercise.dependent.each do |dep| %>
-          <p><%= dep %></p>
-        <% end %>
-      </div>
-    </div>
+<div class="row">
+  <div class="col-md-6">
+    <h4>Exceptions</h4> 
+    <ul>
+      <% @exercise.exceptions.each do |exc| %>
+        <li><%= exc %></li>
+      <% end %>
+    </ul>
   </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo">
-      <h4 class="panel-title text-center">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          2. Substantial
-        </a>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="panel-body">
-        <% @exercise.substantial.each do |sbs| %>
-          <p><%= sbs %></p>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingThree">
-      <h4 class="panel-title text-center">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          3. Partial
-        </a>
-      </h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-      <div class="panel-body">
-        <% @exercise.partial.each do |ptl| %>
-          <p><%= ptl %></p>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingFour">
-      <h4 class="panel-title text-center">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-          4. Supervision
-        </a>
-      </h4>
-    </div>
-    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-      <div class="panel-body">
-        <% @exercise.supervision.each do |spv| %>
-          <p><%= spv %></p>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingFive">
-      <h4 class="panel-title text-center">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
-          5. Setup
-        </a>
-      </h4>
-    </div>
-    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-      <div class="panel-body">
-        <% @exercise.setup.each do |stp| %>
-          <p><%= stp %></p>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingSix">
-      <h4 class="panel-title text-center">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
-          6. Independent
-        </a>
-      </h4>
-    </div>
-    <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
-      <div class="panel-body">
-        <% @exercise.independent.each do |ind| %>
-          <p><%= ind %></p>
-        <% end %>
-      </div>
-    </div>
-  </div>
+  <div class="col-md-6">
+    <h4>Tips</h4> 
+    <ul>
+      <% @exercise.tips.each do |tip| %>
+        <li><%= tip %></li>
+      <% end %>
+    </ul>
   </div>
 </div>
 
+<!--Scoring Tabs-->
+<div>
+  <ul class="nav nav-pills" role="tablist" id="scoreTabs">
+    <li role="presentation" class="active">
+      <a href="#dependentScore" aria-controls="dependentScore" role="tab" data-toggle="pill"><b>Dependent</b></a>
+    </li>
+    <li role="presentation">
+      <a href="#substantialScore" aria-controls="substantialScore" role="tab" data-toggle="pill"><b>Substantial</b></a>
+    </li>
+    <li role="presentation">
+      <a href="#partialScore" aria-controls="partialScore" role="tab" data-toggle="pill"><b>Partial</b></a>
+    </li>
+    <li role="presentation">
+      <a href="#supervisionScore" aria-controls="supervisionScore" role="tab" data-toggle="pill"><b>Supervision</b></a>
+    </li>
+    <li role="presentation">
+      <a href="#setupScore" aria-controls="setupScore" role="tab" data-toggle="pill"><b>Setup</b></a>
+    </li>
+    <li role="presentation">
+      <a href="#independentScore" aria-controls="independentScore" role="tab" data-toggle="pill"><b>Independent</b></a>
+    </li>
+    <li role="presentation">
+      <a href="#otherScore" aria-controls="otherScore" role="tab" data-toggle="pill"><b>Other</b></a>
+    </li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content well">
+    <div role="tabpanel" class="tab-pane active" id="dependentScore">
+      <% @exercise.dependent.each do |dep| %>
+        <p><%= dep %></p>
+      <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="substantialScore">
+      <% @exercise.substantial.each do |sbs| %>
+        <p><%= sbs %></p>
+      <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="partialScore">
+      <% @exercise.partial.each do |ptl| %>
+        <p><%= ptl %></p>
+      <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="supervisionScore">
+      <% @exercise.supervision.each do |spv| %>
+        <p><%= spv %></p>
+      <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="setupScore">
+      <% @exercise.setup.each do |stp| %>
+        <p><%= stp %></p>
+      <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="independentScore">
+      <% @exercise.independent.each do |ind| %>
+        <p><%= ind %></p>
+      <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="otherScore">
+      Nothing for now
+    </div>
+  </div>
+</div>
+
+<!--Paginator-->
 <div class="col-md-8 col-md-offset-2">
   <nav>
     <ul class="pager">
@@ -154,9 +125,3 @@
     </ul>
   </nav>
 </div>
-
-<!--<div class="btn-toolbar" role="toolbar" aria-label="...">-->
-<!--  <div class="btn-group" role="group" aria-label="...">...</div>-->
-<!--  <div class="btn-group" role="group" aria-label="...">...</div>-->
-<!--  <div class="btn-group" role="group" aria-label="...">...</div>-->
-<!--</div>-->

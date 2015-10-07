@@ -1,4 +1,9 @@
-<h1 class="text-center">CARE Tool Exercises</h1>
+<!--Set Title in Navbar-->
+<script>
+  document.getElementById('pageTitle').innerHTML = "Exercises List"; 
+</script>
+
+<!--Listings-->
 <div class="col-md-8 col-md-offset-2">
   <ul class="list-group">
     <% @exercises.each do |exercise| %>
