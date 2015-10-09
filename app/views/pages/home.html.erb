@@ -11,10 +11,21 @@
   
   <h6>This demonstrates some web development skills</h6>
 
-  <ul class="nav nav-pills nav-justified">
-    <li role="presentation"><%= link_to "Exercises", exercises_path, class: 'btn btn-warning' %></li>
-    <li role="presentation"></li>
-    <li role="presentation"></li>
-    <li role="presentation"><%= link_to "Patients", "#", class: 'btn btn-danger' %></li>
-  </ul>
+  <!--<ul class="nav nav-pills nav-justified">-->
+  <!--  <li role="presentation"><%= link_to "Exercises", exercises_path, class: 'btn btn-warning' %></li>-->
+  <!--  <li role="presentation"></li>-->
+  <!--  <li role="presentation"></li>-->
+  <!--  <li role="presentation"><%= link_to "Patients", "#", class: 'btn btn-danger' %></li>-->
+  <!--</ul>-->
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="well">
+        <h2 class="text-center">Sign up to use the Tool</h2>
+        <h4>You will be able to save your work only after signing up</h4>
+        <br/>
+        <%= link_to "Sign up with Basic", new_user_registration_path, class: 'btn btn-primary btn-lg btn-block' %>
+      </div>
+    </div>
+  </div>
 </div>
