@@ -5,30 +5,23 @@
 
 <!--Main body-->
 <div class="jumbotron text-center">
-  <h3>This is a Ruby on Rails version of my physical therapy app</h3>
-  
-  <h4><em>It is not meant for professional use</em></h4>
-  
-  <h6>This demonstrates some web development skills</h6>
+  <h2>
+    This is a Ruby on Rails version of our CARE Tool app. It is not meant for professional use
+  <br>
+    <em>This shows my web development skills</em>
+  </h2>
+</div>
 
-  <!--<ul class="nav nav-pills nav-justified">-->
-  <!--  <li role="presentation"><%= link_to "Exercises", exercises_path, class: 'btn btn-warning' %></li>-->
-  <!--  <li role="presentation"></li>-->
-  <!--  <li role="presentation"></li>-->
-  <!--  <li role="presentation"><%= link_to "Patients", "#", class: 'btn btn-danger' %></li>-->
-  <!--</ul>-->
-
-  <% if user_signed_in? %>
-  <% else %>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="well">
-          <h2 class="text-center">Sign up to use the Tool</h2>
-          <h4>You will be able to save your work only after signing up</h4>
-          <br/>
-          <%= link_to "Sign up with Basic", new_user_registration_path(plan: @standard_plan.id), class: 'btn btn-primary btn-lg btn-block' %>
-        </div>
+<% if user_signed_in? %>
+<% else %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="well text-center">
+        <h1>Sign up to use the Tool</h1>
+        <h4>You will be able to save your work only after signing up</h4>
+        <br/>
+        <%= link_to "Sign up with Basic", new_user_registration_path(plan: @standard_plan.id), class: 'btn btn-primary btn-lg btn-block' %>
       </div>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>

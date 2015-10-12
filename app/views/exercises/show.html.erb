@@ -10,23 +10,23 @@
 
 <!--Description, Exceptions, Tips-->
 <div>
-  <h4>Description</h4>
+  <h4><b>Description</b></h4>
   <%= @exercise.description %>
 </div>
 <div class="row">
   <div class="col-md-6">
-    <h4>Exceptions</h4> 
-    <ul>
+    <h4><b>Exceptions</b></h4> 
+    <ul class="list-unstyled">
       <% @exercise.exceptions.each do |exc| %>
-        <li><%= exc %></li>
+        <li>* <%= exc %></li>
       <% end %>
     </ul>
   </div>
   <div class="col-md-6">
-    <h4>Tips</h4> 
-    <ul>
+    <h4><b>Tips</b></h4> 
+    <ul class="list-unstyled">
       <% @exercise.tips.each do |tip| %>
-        <li><%= tip %></li>
+        <li>* <%= tip %></li>
       <% end %>
     </ul>
   </div>
@@ -53,12 +53,9 @@
     <li role="presentation">
       <a href="#independentScore" aria-controls="independentScore" role="tab" data-toggle="pill"><b>Independent</b></a>
     </li>
-    <li role="presentation">
-      <a href="#otherScore" aria-controls="otherScore" role="tab" data-toggle="pill"><b>Other</b></a>
-    </li>
   </ul>
   <!-- Tab panes -->
-  <div class="tab-content well">
+  <div class="tab-content well" id="scoreExplainerWell">
     <div role="tabpanel" class="tab-pane active" id="dependentScore">
       <% @exercise.dependent.each do |dep| %>
         <p><%= dep %></p>
@@ -88,9 +85,6 @@
       <% @exercise.independent.each do |ind| %>
         <p><%= ind %></p>
       <% end %>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="otherScore">
-      Nothing for now
     </div>
   </div>
 </div>

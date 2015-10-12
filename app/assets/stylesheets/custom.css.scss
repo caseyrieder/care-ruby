@@ -18,29 +18,47 @@ body {
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 32px;
 }
 
 h2 {
-  font-size: 33px;
+  font-size: 28px;
 }
 
 h3 {
-  font-size: 30px;
-}
-
-h4 {
-  font-size: 27px;
-}
-
-h5 {
   font-size: 24px;
 }
 
+h4 {
+  font-size: 20px;
+}
+
+h5 {
+  font-size: 18px;
+}
+
 h6 {
-  font-size: 22px;
+  font-size: 16px;
 }
 
 p, li {
-  font-size: 20px;
+  font-size: 18px;
+}
+
+// Exercise Info Page
+#scoreTabs {
+  li {
+    &:active {
+    color: #fff;
+    }
+
+    &:hover {
+      color: #444;
+    }
+  }
+}
+
+#scoreExplainerWell {
+  background-color: #bbb;
+  border-color: #bbb;
 }
